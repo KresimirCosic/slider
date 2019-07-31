@@ -11,7 +11,7 @@ module.exports = {
     plugins: [
         // Cleans the destianation folder before adding bundled file(s)
         new CleanWebpackPlugin(),
-        // Adds the HTML file with correct file dependencies as listed in the HTML file in ./src folder
+        // Adds the HTML file with correct file dependencies as listed in the HTML file in /src folder
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
@@ -43,6 +43,13 @@ module.exports = {
                     'style-loader',
                     'css-loader',
                     'sass-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    'file-loader'
                 ]
             }
         ]
