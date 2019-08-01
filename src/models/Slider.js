@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import Slide from './Slide';
 import { log } from '../functions';
-import { rejects } from 'assert';
 
 class Slider {
     constructor(id, margin, images) {
@@ -26,9 +25,18 @@ Slider.prototype.init = function() {
     this.populateSlider();
 }
 
-Slider.prototype.loadSlide = function(name) {
-    let { element } = this;
+Slider.prototype.createSlide = function(name) {
     let slide = new Slide(name).create();
+    return slide;
+}
+
+Slider.prototype.prependSlide = function(slide) {
+    let { element } = this;
+    element.prepend(slide);
+}
+
+Slider.prototype.appendSlide = function(slide) {
+    let { element } = this;
     element.append(slide);
 }
 
@@ -36,7 +44,8 @@ Slider.prototype.populateSlider = function() {
     let { images } = this;
 
     for(let image of images) {
-        this.loadSlide(image);
+        let slide = this.createSlide(image);
+        this.appendSlide(slide);
     }
 }
 
