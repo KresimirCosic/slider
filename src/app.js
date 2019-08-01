@@ -1,5 +1,6 @@
-// jQuery
+// This file is used to instantiate the sliders
 import $ from 'jquery';
+import Slider from './models/Slider';
 
 function importAll(r) {
     return r.keys().map(r);
@@ -8,13 +9,9 @@ function importAll(r) {
 const images = importAll(require.context('./assets/', false, /\.(png|jpg|jpeg|gif)$/));
 
 const app = $(document).ready(function() {
-    // Confirming images are being processes/moved and referenced correctly in the production folder
-    $.each(images, function(key, value) {
-        let element = document.createElement('img');
-        element.src = value;
 
-        $('.container').append(element);
-    });
+    let sliderOne = new Slider('slider-one', 5, images);
+
 })
 
 export default app;
