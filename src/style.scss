@@ -1,3 +1,5 @@
+// Bootstrapping all styles into this file
+
 // Libraries
 @import '~normalize.css/normalize.css';
 @import '~animate.css/animate.css';
@@ -5,4 +7,10 @@
 // Globals
 @import './styles/variables';
 @import './styles/globals';
+
+// Components
+@import './styles/layout';
 @import './styles/components';
+
+// Temporary (for testing/clarification purposes)
+@import './styles/temporary';

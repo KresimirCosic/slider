@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-size: $font-large;
+    @media only screen and (max-width: $breakpoint-medium) {
+        font-size: $font-medium;
+    }
+    @media only screen and (max-width: $breakpoint-small) {
+        font-size: $font-small;
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.grid {
+    display: grid;
+}
