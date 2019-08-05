@@ -11,6 +11,7 @@ const images = importAll(require.context('./assets/', false, /\.(png|jpg|jpeg|gi
 const app = $(document).ready(function() {
 
     let sliderOne = new Slider('slider-one', 5, images);
+    let sliderTwo = new Slider('slider-two', 5, images);
 
 })
 

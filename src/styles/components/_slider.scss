@@ -1,0 +1,20 @@
+.slider-container {
+    &-medium {
+        grid-column: 1 / 7;
+    }
+    &-large {
+        grid-column: 1 / 9;
+    }
+}
+
+.slider {
+    height: 100%;
+}
+
+.slide-list-item {
+    height: 100%;
+}
+
+.slide-image {
+    height: 100%;
+}

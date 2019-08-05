@@ -1,7 +1,7 @@
 .app {
     grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 1%;
-    & > * {
+    grid-column-gap: $grid-column-gap;
+    & > *:not(.main) {
         padding: 2rem 4rem;
     }
 }
@@ -22,4 +22,21 @@
 
 .main, .footer {
     grid-column: 1 / -1;
+}
+
+.main {
+    padding: 5rem 0;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 12rem);
+    grid-column-gap: $grid-column-gap;
+    grid-row-gap: 0.75rem;
+}
+
+.button-container {
+    grid-column: 8 / 9;
+}
+
+.sidebar-container {
+    grid-column: 9 / -1;
+    grid-row: 1 / -1;
 }
