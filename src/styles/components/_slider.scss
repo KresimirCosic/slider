@@ -31,7 +31,9 @@
 }
 
 .button {
-    // transition: all 350ms;
+    width: 100%;
+    height: 5rem;
+    border-radius: 5px;
     width: 100%;
     height: 5rem;
     background-repeat: no-repeat;
@@ -43,4 +45,10 @@
     }
     cursor: not-allowed;
     border: 1px solid #ddd;
+    &-previous {
+        top: 0;
+    }
+    &-next {
+        top: 5.5rem;
+    }
 }
