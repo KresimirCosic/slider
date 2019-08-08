@@ -3,17 +3,20 @@ import Slide from './Slide';
 import { log } from '../utility';
 
 class Slider {
-    constructor(id, margin = 10, images) {
+    constructor(id, images, margin = 5) {
         this.id = id;
         this.margin = margin;
         this.images = images;
         this.animationDuration = 350;
-
-        // Reference to the jQuery element object being passed through the constructor
-        // this.element = $(`#${id}`);
+        this.imagesLoaded = false;
 
         // Initializing slider
         this.init();
+
+        // Since images are changing dimensions during some breakpoints, the sliders need adjustments with their image positionings as well
+        $(window).on('resize', () => {
+            this.positionSlides();
+        })
     }
 }
 
@@ -37,6 +40,7 @@ Slider.prototype.prependSlide = function(slide, initialPosition = null) {
 
     if(initialPosition != null) {
         $(slide).css('right', initialPosition);
+        // TODO I have no idea why there is no 'animation' on the prepending element considering the inital position and 0 are obviously different - the slide appears instantly behind the 2nd one that is moving to the left
         $(slide).css('right', 0);
     }
 }
@@ -69,10 +73,25 @@ Slider.prototype.positionSlides = function() {
     let { margin } = this;
     let element = $(`#${this.id}`);
     let slides = element.children();
+
+    if(!this.imagesLoaded) {
+        slides.each(function(index) {
+            // Waiting for images to load before proceeding positioning
+            $(this.firstChild).on('load', function() {
+                let totalPreviousImagesWidth = 0;
+                let slideOffset = index * margin;
     
-    slides.each(function(index) {
-        // Waiting for images to load before proceeding positioning
-        $(this.firstChild).on('load', function() {
+                for (let i = 0; i < index; i++) {
+                    totalPreviousImagesWidth += element.children()[i].clientWidth;
+                }
+    
+                $(this).parent().css('right', slideOffset + totalPreviousImagesWidth);
+            })
+        });
+        this.imagesLoaded = true;
+    } else {
+        // Updating the positions upon resizing the window - I guess useful when turning mobile view from horizontal to vertical and vice versa
+        slides.each(function(index) {
             let totalPreviousImagesWidth = 0;
             let slideOffset = index * margin;
 
@@ -80,9 +99,9 @@ Slider.prototype.positionSlides = function() {
                 totalPreviousImagesWidth += element.children()[i].clientWidth;
             }
 
-            $(this).parent().css('right', slideOffset + totalPreviousImagesWidth);
+            $(this).css('right', slideOffset + totalPreviousImagesWidth);
         })
-    })
+    }
 }
 
 Slider.prototype.slideBackwards = function() {
