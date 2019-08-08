@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import { log } from '../functions';
-
 class Slide {
     constructor(name) {
         this.name = name;

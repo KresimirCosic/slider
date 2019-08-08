@@ -1,5 +1,4 @@
 // Functions that help durig development or have general functionalities
-import $ from 'jquery';
 
 // Log
 const log = function(arg) {
