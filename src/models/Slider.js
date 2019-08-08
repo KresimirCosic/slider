@@ -2,6 +2,12 @@ import $ from 'jquery';
 import Slide from './Slide';
 import { log } from '../utility';
 
+function importAll(r) {
+    return r.keys().map(r);
+}
+// Getting all images of set formats (listed in webpack.config.js) that are located in the /src/assets folder via Webpack
+const buttonImages = importAll(require.context('../assets/utility', false, /\.(png|jpg|jpeg|gif)$/));
+
 class Slider {
     constructor(id, images, margin = 5) {
         this.id = id;
@@ -24,6 +30,9 @@ Slider.prototype.init = function() {
     // Grabbing buttons that are going to control the slider
     $('#previous').click(() => this.slideBackwards());
     $('#next').click(() => this.slideForwards());
+
+    $('#previous').css('background-image', `url(${buttonImages[0]})`);
+    $('#next').css('background-image', `url(${buttonImages[1]})`);
 
     // Populating slider
     this.populateSlider();
@@ -130,6 +139,9 @@ Slider.prototype.slideBackwards = function() {
     setTimeout(() => {
         slides.last().remove();
     }, animationDuration);
+
+    // Disabling buttons
+    this.disableButtons();
 }
 
 Slider.prototype.slideForwards = function() {
@@ -161,6 +173,29 @@ Slider.prototype.slideForwards = function() {
 
     setTimeout(() => {
         slides.first().remove();
+    }, animationDuration);
+
+    // Disabling buttons
+    this.disableButtons();
+}
+
+Slider.prototype.disableButtons = function() {
+    let { animationDuration } = this;
+    let previousButton = $('#previous');
+    let nextButton = $('#next');
+
+    previousButton.css('background-image', `url(${buttonImages[2]})`);
+    nextButton.css('background-image', `url(${buttonImages[3]})`);
+
+    previousButton.prop('disabled', true);
+    nextButton.prop('disabled', true);
+
+    setTimeout(() => {
+        previousButton.css('background-image', `url(${buttonImages[0]})`);
+        nextButton.css('background-image', `url(${buttonImages[1]})`)
+
+        previousButton.prop('disabled', false);
+        nextButton.prop('disabled', false);
     }, animationDuration);
 }
 
