@@ -21,7 +21,7 @@
 .slide-list-item {
     height: 100%;
     list-style: none;
-    transition: all 350ms;
+    transition: all $transition;
 }
 
 .slide-image {
