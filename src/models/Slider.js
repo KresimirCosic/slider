@@ -49,8 +49,10 @@ Slider.prototype.prependSlide = function(slide, initialPosition = null) {
 
     if(initialPosition != null) {
         $(slide).css('right', initialPosition);
-        // TODO I have no idea why there is no 'animation' on the prepending element considering the inital position and 0 are obviously different - the slide appears instantly behind the 2nd one that is moving to the left
-        $(slide).css('right', 0);
+        // Waiting for image to load to start sliding / still looks weird sometimes if the image takes little longer to load
+        $(slide).children().on('load', function() {
+            $(slide).css('right', 0);
+        })
     }
 }
 
