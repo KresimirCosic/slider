@@ -1,0 +1,19 @@
+// Main SCSS file for custom stylying and/or imports of other components
+
+// Global
+@import './styles/variables';
+@import './styles/mixins';
+@import './styles/globals';
+
+// Layout
+@import './styles/layout';
+
+// Temporary (for testing/clarification purposes)
+@import './styles/temporary';
+
+// Components
+@import './styles/components/header';
+@import './styles/components/footer';
+@import './styles/components/nav';
+@import './styles/components/sidebar';
+@import './styles/components/slider';
