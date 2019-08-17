@@ -1,28 +1,29 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: $font-large;
-    @media only screen and (max-width: $breakpoint-medium) {
-        font-size: $font-medium;
-    }
-    @media only screen and (max-width: $breakpoint-small) {
-        font-size: $font-small;
-    }
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $font-large;
+  @media only screen and (max-width: $breakpoint-medium) {
+    font-size: $font-medium;
+  }
+  @media only screen and (max-width: $breakpoint-small) {
+    font-size: $font-small;
+  }
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 .absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .grid {
-    display: grid;
+  display: grid;
 }

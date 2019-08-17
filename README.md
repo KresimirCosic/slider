@@ -7,7 +7,7 @@ $ git clone https://github.com/KresimirCosic/slider
 $ cd slider
 ```
 
-Project is using some **npm** packages for *development* and *production* environments via *Webpack*; to install them use the following:
+Project is using some **npm** packages for _development_ and _production_ environments via _Webpack_; to install them use the following:
 
 ```sh
 $ npm install
@@ -19,13 +19,13 @@ After installation has completed you can either run:
 $ npm run start
 ```
 
-This will open up a *development* environment (deafult port 8080 which can be changed in **package.json** file by adding a flag to the **start** command). This environment is utilizing:
+This will open up a _development_ environment (deafult port 8080 which can be changed in **package.json** file by adding a flag to the **start** command). This environment is utilizing:
 
 - live reload
 - it is read from memory not written onto disk
 - styles are injected into DOM after JavaScript loads
 
-You can, in turn, try building the project for *production* environment by using this command:
+You can, in turn, try building the project for _production_ environment by using this command:
 
 ```sh
 $ npm run build

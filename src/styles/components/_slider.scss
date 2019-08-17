@@ -1,54 +1,54 @@
 .slider-container {
-    overflow: hidden;
-    &-medium {
-        grid-column: 1 / 7;
-        @media only screen and (max-width: $breakpoint-small) {
-            grid-column: 1 / 10;
-        }
+  overflow: hidden;
+  &-medium {
+    grid-column: 1 / 7;
+    @media only screen and (max-width: $breakpoint-small) {
+      grid-column: 1 / 10;
     }
-    &-large {
-        grid-column: 1 / 9;
-        @media only screen and (max-width: $breakpoint-small) {
-            grid-column: 1 / -1;
-        }
+  }
+  &-large {
+    grid-column: 1 / 9;
+    @media only screen and (max-width: $breakpoint-small) {
+      grid-column: 1 / -1;
     }
+  }
 }
 
 .slider {
-    height: 100%;
+  height: 100%;
 }
 
 .slide-list-item {
-    height: 100%;
-    list-style: none;
-    transition: all $transition;
+  height: 100%;
+  list-style: none;
+  transition: all $transition;
 }
 
 .slide-image {
-    height: 100%;
-    border-radius: 5px;
-    object-fit: cover;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .button {
-    width: 100%;
-    height: 5rem;
-    border-radius: 5px;
-    width: 100%;
-    height: 5rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    &:not([disabled]) {
-        cursor: pointer;
-        border: 1px solid darkblue;
-    }
-    cursor: not-allowed;
-    border: 1px solid #ddd;
-    &-previous {
-        top: 0;
-    }
-    &-next {
-        top: 5.5rem;
-    }
+  width: 100%;
+  height: 5rem;
+  border-radius: 5px;
+  width: 100%;
+  height: 5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  &:not([disabled]) {
+    cursor: pointer;
+    border: 1px solid darkblue;
+  }
+  cursor: not-allowed;
+  border: 1px solid #ddd;
+  &-previous {
+    top: 0;
+  }
+  &-next {
+    top: 5.5rem;
+  }
 }

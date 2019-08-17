@@ -8,41 +8,34 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
-    mode: 'production',
-    output: {
-        filename: '[name].[contenthash].bundle.js',
-        path: path.resolve(__dirname, './dist')
-    },
-    optimization: {
-        minimizer: [
-            new OptimizeCssAssetsWebpackPlugin(),
-            new TerserPlugin()
-        ]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        }),
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            minify: {
-                removeAttributeQuotes: true,
-                collapseWhitespace: true,
-                removeComments: true
-            }
-        })
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
-            }
-        ]
-    },
+  mode: 'production',
+  output: {
+    filename: '[name].[contenthash].bundle.js',
+    path: path.resolve(__dirname, './dist')
+  },
+  optimization: {
+    minimizer: [new OptimizeCssAssetsWebpackPlugin(), new TerserPlugin()]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      minify: {
+        removeAttributeQuotes: true,
+        collapseWhitespace: true,
+        removeComments: true
+      }
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
+  }
 });

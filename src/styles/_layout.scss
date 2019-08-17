@@ -1,57 +1,58 @@
 .app {
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: $grid-column-gap;
-    & > *:not(.main) {
-        padding: 2rem 4rem;
-    }
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: $grid-column-gap;
+  & > *:not(.main) {
+    padding: 2rem 4rem;
+  }
 }
 
 .nav {
-    grid-column: 1 / 5;
-    @media only screen and (max-width: $breakpoint-small) {
-        grid-column: 1 / -1;
-    }
+  grid-column: 1 / 5;
+  @media only screen and (max-width: $breakpoint-small) {
+    grid-column: 1 / -1;
+  }
 }
 
 .header {
-    grid-column: 5 / -1;
-    @media only screen and (max-width: $breakpoint-small) {
-        grid-column: 1 / -1;
-    }
+  grid-column: 5 / -1;
+  @media only screen and (max-width: $breakpoint-small) {
+    grid-column: 1 / -1;
+  }
 }
 
-.main, .footer {
-    grid-column: 1 / -1;
+.main,
+.footer {
+  grid-column: 1 / -1;
 }
 
 .main {
-    padding: 5rem 0;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 12rem);
-    grid-column-gap: $grid-column-gap;
-    grid-row-gap: 0.75rem;
+  padding: 5rem 0;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, 12rem);
+  grid-column-gap: $grid-column-gap;
+  grid-row-gap: 0.75rem;
 }
 
 .button {
-    &-container {
-        grid-column: 8 / 9;
-        @media only screen and (max-width: $breakpoint-small) {
-            grid-column: 11 / -1;
-        }
-    }
-}
-.button-container {
+  &-container {
     grid-column: 8 / 9;
     @media only screen and (max-width: $breakpoint-small) {
-        grid-column: 11 / -1;
+      grid-column: 11 / -1;
     }
+  }
+}
+.button-container {
+  grid-column: 8 / 9;
+  @media only screen and (max-width: $breakpoint-small) {
+    grid-column: 11 / -1;
+  }
 }
 
 .sidebar-container {
-    grid-column: 9 / -1;
-    grid-row: 1 / -1;
-    @media only screen and (max-width: $breakpoint-small) {
-        grid-column: 1 / -1;
-        grid-row: 3 / -1;
-    }
+  grid-column: 9 / -1;
+  grid-row: 1 / -1;
+  @media only screen and (max-width: $breakpoint-small) {
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+  }
 }
